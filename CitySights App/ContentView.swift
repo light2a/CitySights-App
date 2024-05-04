@@ -28,9 +28,32 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
             }
-            List(businesses){ b in
-                Text(b.name ?? "thoi")
+            List{
+                ForEach(businesses) { business in
+                    VStack (spacing:20){
+                        HStack (spacing: 0){
+                            Image("list-placeholder-image")
+                                .padding(.trailing,16) //them 16 theo sau cai Hstack nghia la them ben phai
+                            VStack(alignment: .leading) {
+                                Text(business.name ?? "Res")
+                                    .font(Font.system(size: 15))
+                                    .bold()
+                                Text(TextHelper.distanceAwayText(meters: business.distance ?? 0))
+                                    .font(Font.system(size: 16))
+                                    .foregroundStyle(Color(red: 67/255, green: 71/255, blue: 76/255))
+                            }
+                            Spacer()
+                            Image("regular_\(business.rating ?? 0)")
+                            
+                        }
+                        Divider()
+                        
+                    }
+                    
+                }
+                .listRowSeparator(.hidden)// che dong ngan cach
             }
+            .listStyle(.plain)
             
         }
         .padding()
