@@ -18,6 +18,7 @@
 		891E4DED2BE5D7780054A13E /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E4DEC2BE5D7780054A13E /* BusinessSearch.swift */; };
 		891E4DEF2BE5D7F20054A13E /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E4DEE2BE5D7F20054A13E /* Business.swift */; };
 		891E4DF22BE66D9A0054A13E /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E4DF12BE66D9A0054A13E /* TextHelper.swift */; };
+		891E4DF42BE681D80054A13E /* BusinessDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E4DF32BE681D80054A13E /* BusinessDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		891E4DEC2BE5D7780054A13E /* BusinessSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
 		891E4DEE2BE5D7F20054A13E /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		891E4DF12BE66D9A0054A13E /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
+		891E4DF32BE681D80054A13E /* BusinessDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				891E4DE62BE4D81F0054A13E /* Config.xcconfig */,
 				891E4DC02BE3DE280054A13E /* Assets.xcassets */,
 				891E4DC22BE3DE280054A13E /* Preview Content */,
+				891E4DF32BE681D80054A13E /* BusinessDetailView.swift */,
 			);
 			path = "CitySights App";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				891E4DE92BE517490054A13E /* DataService.swift in Sources */,
+				891E4DF42BE681D80054A13E /* BusinessDetailView.swift in Sources */,
 				891E4DED2BE5D7780054A13E /* BusinessSearch.swift in Sources */,
 				891E4DBF2BE3DE260054A13E /* ContentView.swift in Sources */,
 				891E4DEF2BE5D7F20054A13E /* Business.swift in Sources */,
