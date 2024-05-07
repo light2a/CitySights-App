@@ -20,6 +20,8 @@ struct CitySights: App {
                     needsOnboarding = false
                 } content: {
                     OnboardingView()
+                        .environment(model)
+
                 }//resent a view in full screen
         }
     }
