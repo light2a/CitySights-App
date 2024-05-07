@@ -15,8 +15,23 @@ struct ListView: View {
             ForEach(model.businesses) { business in
                 VStack (spacing:20){
                     HStack (spacing: 0){
-                        Image("list-placeholder-image")
-                            .padding(.trailing,16) //them 16 theo sau cai Hstack nghia la them ben phai
+                        if let imageURL = business.imageUrl {
+                            AsyncImage(url: URL(string: imageURL)!) { image in
+                                image.resizable()
+                                    .frame(width: 50, height: 50)
+                                    .aspectRatio(contentMode: .fill)
+                                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                                    .padding(.trailing,16)
+                                
+                            } placeholder: {
+                                ProgressView()
+                                    .frame(width: 50, height: 50)
+                            }
+                        } else {
+                            Image("list-placeholder-image")
+                                .padding(.trailing,16) //them 16 theo sau cai Hstack nghia la them ben phai
+                        }
+                        
                         VStack(alignment: .leading) {
                             Text(business.name ?? "Res")
                                 .font(Font.system(size: 15))
