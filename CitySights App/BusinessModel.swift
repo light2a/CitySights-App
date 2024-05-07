@@ -13,7 +13,6 @@ import CoreLocation
 class BusinessModel: NSObject, CLLocationManagerDelegate {//first deligate de xac dinh vi tri , phai ke thua Nsobject
     var businesses = [Business]()
     var selectedBusiness: Business?
-    var query: String = ""
     
     var service = DataService()
     var locationManager = CLLocationManager()
@@ -27,9 +26,9 @@ class BusinessModel: NSObject, CLLocationManagerDelegate {//first deligate de xa
         locationManager.delegate = self
         
     }
-    func getBusiness() {
+    func getBusiness(query: String?, options: String?, category: String?) {
         Task {
-            businesses = await service.businessSearch(userLocation: currentUserLocation)
+            businesses = await service.businessSearch(userLocation: currentUserLocation, query: query, option: options, catagory: category)
         }
     }
     
@@ -59,7 +58,7 @@ class BusinessModel: NSObject, CLLocationManagerDelegate {//first deligate de xa
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentUserLocation = locations.last?.coordinate//ko nen fire multiple tine nen heandle
         if currentUserLocation == nil {
-            getBusiness()
+            getBusiness(query: nil, options: nil, category: nil)
         }
         manager.startUpdatingLocation()
     }

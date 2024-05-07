@@ -12,7 +12,7 @@ struct DataService {
     
     let apikey = Bundle.main.infoDictionary?["API_KEY"] as? String
     
-    func businessSearch(userLocation: CLLocationCoordinate2D?) async ->[Business]{
+    func businessSearch(userLocation: CLLocationCoordinate2D?, query: String?, option: String?, catagory: String?) async ->[Business]{
         //check api key exist or not
         guard apikey != nil else {
             return [Business]()
@@ -25,8 +25,23 @@ struct DataService {
             long = userLocation.longitude
         }
         
+        var endpointUrlString = "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(long)&limit=10"
+        
+        //add query
+        if query != nil && query != "" {
+            endpointUrlString.append("&term=\(query!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")// returns a new string created by replacing all charactwe not in specified set with percent tuong trung cho dau cach urlQuery khoang do may ng
+        }
+        // add option
+        if option != nil && option != "" {
+            endpointUrlString.append("&attributes=\(option)")
+        }
+        // add category
+        if let category = catagory {
+            endpointUrlString.append("&category=\(category)")
+        }
+        
         //1 .  create url
-        if let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(long)&categories=restaurants&limit=10"){
+        if let url = URL(string: endpointUrlString){
             //2.  create request
             var request = URLRequest(url: url)
             request.addValue("Bearer \(apikey!)", forHTTPHeaderField: "Authorization")
