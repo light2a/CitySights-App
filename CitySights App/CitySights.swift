@@ -24,7 +24,7 @@ struct CitySights: App {
 
                 }//resent a view in full screen
                 .onAppear {
-                    if  needsOnboarding == false {
+                    if  needsOnboarding == false && model.locationSatus == .notDetermined{
                         model.getUserLocation()
                     }
                 }

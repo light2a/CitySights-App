@@ -84,7 +84,17 @@ struct HomeView: View {
             .padding(.horizontal
             )
             //show map or list
-            if bool==0 { 
+            if model.locationSatus == .denied {
+                Text("ko mo vi tri dung dung")
+                Button(action: {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                }, label: {
+                    Text("Open")
+                })
+            }
+            else if bool==0 {
                 MapView()
                     .onTapGesture {
                         withAnimation{
@@ -106,9 +116,7 @@ struct HomeView: View {
             
         }
         .padding()
-        .onAppear{
-            model.getBusiness(query: nil, options: nil, category: nil)
-        }
+        
         .sheet(item: $model.selectedBusiness) { item in
             BusinessDetailView()
         }
