@@ -58,7 +58,7 @@ class BusinessModel: NSObject, CLLocationManagerDelegate {//first deligate de xa
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentUserLocation = locations.last?.coordinate//ko nen fire multiple tine nen heandle
-        if currentUserLocation != nil {
+        if currentUserLocation == nil {
             getBusiness()
         }
         manager.startUpdatingLocation()
